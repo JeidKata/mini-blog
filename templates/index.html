@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Blog</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <form method="POST" action="/add">
+        <input type="text" name="title" placeholder="Título" required><br>
+        <textarea name="content" placeholder="Contenido del blog"></textarea><br>
+        <button type="submit">Agregar</button>
+    </form>
+    <hr>
+    {%for post in posts%}
+        <h2>{{post[1]}}</h2>
+        <h2>{{post[2]}}</h2>
+    {% endfor %}
+</body>
+</html>
