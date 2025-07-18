@@ -1,0 +1,8 @@
+# Se crea un grupo
+az group create --name mini-blog-grupo --location eastus
+# SE crea el plan de servicio
+az appservice plan create --name miniblogplan --resource-group mini-blog-grupo --sku F1 --is-linux --location "canada central"
+# Crea el webapp
+az webapp create --resource-group mini-blog-grupo --plan miniblogplan --name mini-blog-app1254 --runtime "PYTHON|3.12"
+# Desplegar el proyecto desde Github
+az webapp deployment source config --branch master --manual-integration --name mini-blog-app1254 --repo-url https://github.com/rafperdevops/mini-blog --resource-group mini-blog-grupo
